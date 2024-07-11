@@ -99,36 +99,4 @@ export class ProductRepository{
             throw err;
         }
     }
-    async updateProduct(id: number, name: string, price: number) :Promise<Product>{
-        const query = "UPDATE vendas.Product set name = ?, price =? where id =?" ;
-
-        try {
-            const resultado = await executarComandoSQL(query, [name, price, id]);
-            console.log('Produto atualizado com sucesso, ID: ', resultado.insertId);
-            const product = new Product(id, name, price);
-            return new Promise<Product>((resolve)=>{
-                resolve(product);
-            })
-        } catch (err) {
-            console.error('Erro ao atualizar o produto:', err);
-            throw err;
-        }
-    }
-
-    async deleteProduct(id: number, name: string, price: number) :Promise<Product>{
-        const query = "DELTEFROM vendas.Product WHERE id = ? AND name = ?, AND price = ?" ;
-
-        try {
-            const resultado = await executarComandoSQL(query, [id, name, price]);
-            console.log('Produto deletado com sucesso, ID: ', resultado.insertId);
-            const product = new Product(id, name, price);
-            return new Promise<Product>((resolve)=>{
-                resolve(product);
-            })
-        } catch (err) {
-            console.error('Erro ao deletar o produto:', err);
-            throw err;
-        }
-    }
-    
 }
