@@ -28,6 +28,6 @@ export function executarComandoSQL(query: string, valores: any[]): Promise<any> 
                 }
                 resolve(resultado);
             });
-        }
-    )
+        }  
+    ) 
 }
