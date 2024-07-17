@@ -23,7 +23,7 @@ export class Estoque{
 
     constructor(quantidade:number){
         this.quantidade = quantidade;
-        this.id = 
+        this.id = number;
     }
-    
+
 }
