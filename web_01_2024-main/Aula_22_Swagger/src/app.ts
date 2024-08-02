@@ -1,4 +1,4 @@
-import express from 'express';
+import express from 'express'; 
 import { cadastrarProduto, atualizarProduto, deletarProduto, filtrarProduto, listarTodosProduto } from './controller/ProductController';
 
 const app = express();
@@ -6,6 +6,15 @@ const app = express();
 const PORT = 3040;
 
 app.use(express.json());
+
+const apiRouter = express.Router();
+RegisterRoutes(apiRouter);
+
+app.use('/api', apiRouter);
+
+RegisterRoutes(app);
+
+setupSwagger(app);
 
 app.post("/api/product", cadastrarProduto)
 app.put("/api/product", atualizarProduto)
