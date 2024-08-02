@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import { ProductService } from "../service/ProductService";
-import { Tags } from "tsoa";
+import { Tags, Route, Post, Res, Controller, Body } from "tsoa";
 import { BasicResponseDto } from "../model/dto/BasicResponseDto";
+import { ProductRequestDto } from "../model/dto/ProductRequestDto";
 @Route("product")
 @Tags("Product")
 export class ProductController extends Controller{
